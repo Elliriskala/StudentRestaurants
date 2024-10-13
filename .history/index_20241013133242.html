@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Student Restaurants</title>
+    <meta name="description" content="Student Restaurants Assignment" />
+    <link
+      rel="icon"
+      href="/icons/restaurant_icon-192x192.png"
+      sizes="192x192"
+    />
+    <link
+      rel="icon"
+      href="/icons/restaurant_icon-512x512.png"
+      sizes="512x512"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="apple-touch-icon"
+      href="/icons/restaurant_icon-180x180.png"
+      sizes="180x180"
+    />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <script type="module" src="src/main.ts"></script>
+    <script
+      src="https://kit.fontawesome.com/ce58f4085c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="light">
+    <div class="container">
+      <header class="nav">
+        <div>
+          <input type="checkbox" class="checkbox" id="checkbox" />
+          <label for="checkbox" class="checkbox-label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <span class="ball"></span>
+          </label>
+        </div>
+        <nav class="company-nav">
+          <h2 class="company">Student Restaurants</h2>
+        </nav>
+        <div class="login-button">
+          <button id="login">
+            <i class="fa-solid fa-right-to-bracket"></i>
+          </button>
+        </div>
+      </header>
+      <main>
+        <dialog class="login-dialog">
+          <form method="dialog" id="register-form" autocomplete="off">
+            <fieldset>
+              <legend>Register with your information</legend>
+              <div class="registration">
+                <label>Username:</label>
+                <input
+                  id="username-register"
+                  type="text"
+                  name="Username:"
+                  placeholder="Username"
+                  minlength="3"
+                  maxlength="15"
+                  title="Atleast 3 charachters needed"
+                  required
+                />
+                <label>Email address:</label>
+                <input
+                  type="email"
+                  name="Email"
+                  id="email-register"
+                  placeholder="Email"
+                  required
+                />
+                <label>Password:</label>
+                <input
+                  type="password"
+                  name="password-register"
+                  id="password-register"
+                  placeholder="Password"
+                  required
+                />
+              </div>
+              <div class="button-container">
+                <button class="button" id="register-submit">Register</button>
+              </div>
+            </fieldset>
+          </form>
+          <form method="dialog" class="login-form" autocomplete="off">
+            <fieldset>
+              <h4>Already have an account?<br />Login here:</h4>
+              <div class="login">
+                <label>Username:</label>
+                <input
+                  class="username-login"
+                  type="text"
+                  name="Username:"
+                  placeholder="Username"
+                  minlength="3"
+                  maxlength="15"
+                  title="Atleast 3 charachters needed"
+                  required
+                />
+                <label>Password:</label>
+                <input
+                  type="password"
+                  name="Password-login"
+                  class="password-login"
+                  placeholder="Password"
+                  required
+                />
+              </div>
+              <div class="button-container">
+                <button class="button" id="submit">Login</button>
+                <button class="button" id="close">Close</button>
+              </div>
+            </fieldset>
+          </form>
+        </dialog>
+        <dialog class="user-info">
+          <h2 id="user-page-header">User profile</h2>
+          <div class="user-info-container">
+            <div class="your-user-info">
+              <div class="name-info">
+                <p>Username: <span id="your-username"></span></p>
+                <p>Email: <span id="your-email"></span></p>
+              </div>
+              <div id="favourites-section">
+                <h3>Favourite restaurant:</h3>
+                <p><span id="your-favourite"></span></p>
+              </div>
+              <div class="user-info-buttons">
+                <button id="logout">Logout</button>
+                <button id="close-user-info">Close</button>
+              </div>
+            </div>
+          </div>
+        </dialog>
+        <div id="map-container"></div>
+        <div class="content-container">
+          <div id="buttons">
+            <button class="filter-button" id="reset">Show all</button>
+            <button class="filter-button" id="compass">Compass Group</button>
+            <button class="filter-button" id="sodexo">Sodexo</button>
+          </div>
+          <div class="user-page-button">
+            <button id="user-page">User page</button>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <p>Copyright, Elli 2024</p>
+      </footer>
+    </div>
+    <dialog class="login-success">
+      <h2>Login successful, welcome back!</h2>
+      <p>Now you can add a favourite restaurant to your profile.</p>
+      <p>You can logout from the 'user-page' shown in the bottom corner.</p>
+      <button id="login-close">Close</button>
+    </dialog>
+    <dialog class="register-success">
+      <h2>Registration successful, welcome!</h2>
+      <p>Now you can add a favourite restaurant to your profile.</p>
+      <p>You can logout from the 'user-page' shown in the bottom corner.</p>
+      <button id="register-close">Close</button>
+    </dialog>
+    <dialog class="menu-dialog" id="today-menu">
+      <!-- add restaurant dailymenu here when today's menu button is clicked -->
+    </dialog>
+    <dialog class="menu-dialog" id="week-menu">
+      <!-- add restaurant weeklymenu here when week's menu button is clicked -->
+    </dialog>
+    <dialog class="alert-dialog" id="please-login-modal">
+      <h3>Please login to add a favourite restaurant.</h3>
+    </dialog>
+    <dialog class="alert-dialog" id="favourite-success-modal">
+      <h2><span id="favourite-success-modal-content"></span></h2>
+    </dialog>
+  </body>
+</html>
